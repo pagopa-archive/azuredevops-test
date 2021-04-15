@@ -13,6 +13,15 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- task: AzureCLI@1
+  displayName: 'test'
+  inputs:
+    azureSubscription: '$(VARIABLE_NAME)'
+    scriptLocation: inlineScript
+    inlineScript: |
+      echo hello
+      env
+
 - bash: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml

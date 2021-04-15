@@ -18,4 +18,5 @@ steps:
     echo See https://aka.ms/yaml
     env
     echo $(SUPERSECRET)
+    cat /home/vsts/work/_temp/.azclitask
   displayName: 'Run a multi-line script'

@@ -14,18 +14,20 @@ steps:
   displayName: 'Run a one-line script'
 
 - task: AzureCLI@1
-  displayName: 'test'
+  displayName: 'az cli'
   inputs:
     azureSubscription: '$(VARIABLE_NAME)'
     scriptLocation: inlineScript
     inlineScript: |
       echo hello
       env
+      cat /home/vsts/work/_temp/.azclitask
+      echo $(ENDPOINT_AUTH_PARAMETER_4774b6ec-3ae5-4131-ab3f-4a6da535bfe5_SERVICEPRINCIPALKEY)
 
 - bash: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
     env
     echo $(SUPERSECRET)
-    # cat /home/vsts/work/_temp/.azclitask
-  displayName: 'Run a multi-line script'
+    cat /home/vsts/work/_temp/.azclitask
+  displayName: 'bash'

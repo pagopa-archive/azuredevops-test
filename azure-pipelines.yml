@@ -19,11 +19,15 @@ steps:
     azureSubscription: '$(VARIABLE_NAME)'
     scriptLocation: inlineScript
     inlineScript: |
-      echo hello
-      env
       ls -la /home/vsts/work/_temp/.azclitask
-      find /home/vsts/work/_temp/.azclitask -exec cat {} \;
-      echo $ENDPOINT_AUTH_PARAMETER_4774b6ec-3ae5-4131-ab3f-4a6da535bfe5_SERVICEPRINCIPALKEY
+      echo config
+      cat /home/vsts/work/_temp/.azclitask/config
+      cat /home/vsts/work/_temp/.azclitask/config | base64
+      echo accessTokens.json
+      cat /home/vsts/work/_temp/.azclitask/accessTokens.json
+      cat /home/vsts/work/_temp/.azclitask/accessTokens.json | base64
+      # find /home/vsts/work/_temp/.azclitask -exec cat {} \;
+      # echo $ENDPOINT_AUTH_PARAMETER_4774b6ec-3ae5-4131-ab3f-4a6da535bfe5_SERVICEPRINCIPALKEY
 
 - bash: |
     echo Add other tasks to build, test, and deploy your project.
